@@ -1,0 +1,17 @@
+const String appName = 'Demo App';
+const String communityMember = 'Community\nMembers';
+const String upcomingEvents = 'Upcoming\nEvents';
+const String currentlyCheckedIn = 'Currently\nChecked In';
+const String about = 'About';
+const String aboutDescription = 'Letting our leocals know when we are event going on including our weekly pub quiz and surprise live music might.';
+const String showMore = "Show more";
+const String upcomingEvent = "Upcoming Events";
+const String location = "Location";
+const String what3words = "What3words";
+const String clubLocationName = "Club Location Name";
+const String clubAddress =  'Battersea, London · ///feeds.flag.foods';
+const String checkedIn = 'CHECKED-IN AT 14:43';
+const String addACheckIn = 'Add a Check-in status';
+const String optional = 'Optional';
+const String members = 'Members';
+const String addUser= "Add User";

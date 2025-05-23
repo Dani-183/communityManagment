@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:task/constants/colors.dart';
 import '../../controllers/community_controller/community_controller.dart';
 import '../../widgets/about_section.dart';
 import '../../widgets/community_header.dart';
@@ -13,10 +14,12 @@ import '../../widgets/upcoming_event_section.dart';
 class CommunityScreen extends StatelessWidget {
   final CommunityController controller = Get.find<CommunityController>();
 
+   CommunityScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: AppColors.whiteColor,
       body: SafeArea(
         child: Column(
           children: [
@@ -27,7 +30,7 @@ class CommunityScreen extends StatelessWidget {
                   spacing: 20,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CommunityHeader(),
+                    CustomHeader(),
                     AboutSection(),
                     UpcomingEventsSection(),
                     LocationSection(),

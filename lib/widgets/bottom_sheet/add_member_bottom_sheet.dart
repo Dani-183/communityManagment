@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:task/constants/colors.dart';
+import 'package:task/constants/strings.dart';
 
 import '../../../controllers/community_controller/community_controller.dart';
 import '../../../models/member_model/member_model.dart';
@@ -9,6 +10,8 @@ import '../../../models/member_model/member_model.dart';
 
 class AddMemberBottomSheet extends StatelessWidget {
   final CommunityController controller = Get.find<CommunityController>();
+
+   AddMemberBottomSheet({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +43,7 @@ class AddMemberBottomSheet extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Add Member',
+                  addUser,
                   style: context.textTheme.labelLarge?.copyWith(
                     fontSize: 20,
                   ),
@@ -56,24 +59,8 @@ class AddMemberBottomSheet extends StatelessWidget {
               ],
             ),
           ),
-          // Search bar
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20),
-            decoration: BoxDecoration(
-              color: Colors.grey[100],
-              borderRadius: BorderRadius.circular(12),
-            ),
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: 'Search users...',
-                hintStyle: TextStyle(color: AppColors.grey),
-                prefixIcon: Icon(Icons.search, color: AppColors.grey.withOpacity(0.5)),
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.symmetric(vertical: 12),
-              ),
-            ),
-          ),
-          Gap(20),
+
+
           // Available users list
           Flexible(
             child: Container(
@@ -94,7 +81,7 @@ class AddMemberBottomSheet extends StatelessWidget {
                           size: 48,
                           color: Colors.grey[400],
                         ),
-                        SizedBox(height: 16),
+                        Gap(16),
                         Text(
                           'No users available to add',
                           style: TextStyle(
@@ -114,7 +101,7 @@ class AddMemberBottomSheet extends StatelessWidget {
                   separatorBuilder: (context, index) => SizedBox(height: 12),
                   itemBuilder: (context, index) {
                     final user = availableUsers[index];
-                    return _buildUserItem(user);
+                    return _buildUserCard(user);
                   },
                 );
               }),
@@ -126,57 +113,57 @@ class AddMemberBottomSheet extends StatelessWidget {
     );
   }
 
-  Widget _buildUserItem(Member user) {
-    return GestureDetector(
-      onTap: () => controller.addMember(user),
-      child: Container(
-        padding: EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: Colors.grey[50],
-          borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: AppColors.grey.withOpacity(0.5)),
-        ),
-        child: Row(
-          children: [
-            // Avatar
-            Container(
-              width: 50,
-              height: 50,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                  image: NetworkImage(user.avatarUrl),
-                  fit: BoxFit.cover,
+  Widget _buildUserCard(Member user) {
+    return Container(
+      padding: EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.grey[50],
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: AppColors.grey.withOpacity(0.5)),
+      ),
+      child: Row(
+        children: [
+          // Avatar
+          Container(
+            width: 50,
+            height: 50,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              image: DecorationImage(
+                image: NetworkImage(user.avatarUrl),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+          SizedBox(width: 12),
+          // User details
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  user.name,
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black87,
+                  ),
                 ),
-              ),
-            ),
-            SizedBox(width: 12),
-            // User details
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    user.name,
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w600,
-                      color: Colors.black87,
-                    ),
+                SizedBox(height: 2),
+                Text(
+                  user.role,
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey[600],
                   ),
-                  SizedBox(height: 2),
-                  Text(
-                    user.role,
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.grey[600],
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            // Add button
-            Container(
+          ),
+          // Add button
+          InkWell(
+            onTap: () => controller.addMember(user),
+            child: Container(
               padding: EdgeInsets.all(8),
               decoration: BoxDecoration(
                 color: Colors.blue,
@@ -188,8 +175,8 @@ class AddMemberBottomSheet extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

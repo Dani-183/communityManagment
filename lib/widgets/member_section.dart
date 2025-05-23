@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
+import 'package:task/constants/strings.dart';
 import '../../constants/colors.dart';
 import '../../controllers/community_controller/community_controller.dart';
 import '../widgets/member_item.dart';
 import 'bottom_sheet/add_member_bottom_sheet.dart';
 
+
+
 class MembersSection extends StatelessWidget {
   final CommunityController controller = Get.find<CommunityController>();
+
+   MembersSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +40,7 @@ class MembersSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Members',
+                  members,
                   style: context.textTheme.labelLarge?.copyWith(
                     fontSize: 18,
                     fontWeight: FontWeight.w600,

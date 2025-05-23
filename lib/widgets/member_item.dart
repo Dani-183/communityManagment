@@ -6,7 +6,7 @@ import '../../models/member_model/member_model.dart';
 class MemberItem extends StatelessWidget {
   final Member member;
 
-  const MemberItem({Key? key, required this.member}) : super(key: key);
+  const MemberItem({super.key, required this.member});
 
   @override
   Widget build(BuildContext context) {

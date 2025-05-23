@@ -3,10 +3,13 @@ import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:task/constants/colors.dart';
 import '../../controllers/community_controller/community_controller.dart';
+import '../constants/strings.dart';
 import '../widgets/event_item.dart';
 
 class UpcomingEventsSection extends StatelessWidget {
   final CommunityController controller = Get.find<CommunityController>();
+
+   UpcomingEventsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,7 @@ class UpcomingEventsSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Upcoming Events',
+                 upcomingEvent,
                   style: context.textTheme.labelLarge?.copyWith(
                     fontWeight: FontWeight.w600,
                     fontSize: 20

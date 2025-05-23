@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 import 'package:task/constants/colors.dart';
-
+import '../constants/strings.dart';
 import 'buttons/icon_buttons.dart';
 
 class AboutSection extends StatelessWidget {
+  const AboutSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,8 +32,8 @@ class AboutSection extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'About',
-                style: TextStyle(
+                about,
+                style: context.textTheme.labelLarge?.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
                   color: Colors.black87,
@@ -49,7 +51,7 @@ class AboutSection extends StatelessWidget {
           ),
           Gap(10),
           Text(
-            'Letting our leocals know when we are event going on including our weekly pub quiz and surprise live music might.',
+            aboutDescription,
             style: context.textTheme.labelMedium?.copyWith(
               fontWeight: FontWeight.normal,
 
@@ -59,7 +61,7 @@ class AboutSection extends StatelessWidget {
           Align(
             alignment: Alignment.centerRight,
             child: Text(
-              'Show more',
+              showMore,
               style: context.textTheme.bodyMedium?.copyWith(
                 color: AppColors.primaryColor.withOpacity(0.3),
               ),

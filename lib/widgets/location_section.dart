@@ -2,11 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:task/constants/colors.dart';
 import 'package:task/constants/extension.dart';
+import 'package:task/constants/strings.dart';
 
 import '../../gen/assets.gen.dart';
 import 'buttons/icon_buttons.dart';
 
 class LocationSection extends StatelessWidget {
+  const LocationSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,12 +29,13 @@ class LocationSection extends StatelessWidget {
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Location',
+                location,
                 style: context.textTheme.labelLarge?.copyWith(
                   fontSize: 18,
                   fontWeight: FontWeight.w600,
@@ -59,7 +63,7 @@ class LocationSection extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      'what3words',
+                      what3words,
                       style: context.textTheme.bodySmall?.copyWith(
                         fontSize: 10,
                         fontWeight: FontWeight.w500,
@@ -72,7 +76,7 @@ class LocationSection extends StatelessWidget {
           ),
           Gap(10),
           Text(
-            'Club Location Name',
+            clubLocationName,
             style: context.textTheme.labelLarge?.copyWith(
               fontWeight: FontWeight.w500,
               color: AppColors.grey,
@@ -80,7 +84,7 @@ class LocationSection extends StatelessWidget {
           ),
           Gap(4),
           Text(
-            'Battersea, London · ///feeds.flag.foods',
+           clubAddress,
             style: context.textTheme.bodySmall?.copyWith(
               color: AppColors.grey.withOpacity(0.7),
             ),
@@ -95,7 +99,7 @@ class LocationSection extends StatelessWidget {
             ),
             alignment: Alignment.center,
             child: Text(
-              'CHECKED-IN AT 14:43',
+              checkedIn,
               style: context.textTheme.bodySmall?.copyWith(
                 fontWeight: FontWeight.w600,
                 color: AppColors.grey.withOpacity(0.7),
@@ -115,7 +119,7 @@ class LocationSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Add a Check-in status',
+                  addACheckIn,
                   style: context.textTheme.bodySmall,
                 ),
                 CustomIconButton(
@@ -135,7 +139,7 @@ class LocationSection extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  'Optional',
+                  optional,
                   style: context.textTheme.bodySmall?.copyWith(fontSize: 10, color: AppColors.grey,),
                 ),
                 Text(

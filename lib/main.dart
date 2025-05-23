@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:task/constants/strings.dart';
 import 'package:task/constants/theme.dart';
 import 'bindings/bindings.dart';
 import 'views/community_screen/community_screen.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'Demo App',
+      title: appName,
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme(context),
       home: CommunityScreen(),

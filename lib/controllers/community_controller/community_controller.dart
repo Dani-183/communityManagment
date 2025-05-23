@@ -5,12 +5,10 @@ import '../../models/event_model/event_model.dart';
 import '../../models/member_model/member_model.dart';
 
 class CommunityController extends GetxController {
-  // Observable variables
   var isFavourite = false.obs;
   var members = <Member>[].obs;
   var availableUsers = <Member>[].obs;
 
-  // Community data
   var community = Rx<Community>(Community(
     name: "The Elm Park Tavern Community",
     communityMembers: 203,
@@ -18,16 +16,15 @@ class CommunityController extends GetxController {
     currentlyCheckedIn: 8,
   ));
 
-  // Events data
   var upcomingEvents = <Event>[].obs;
 
   @override
   void onInit() {
     super.onInit();
-    _initializeMockData();
+    _initialData();
   }
 
-  void _initializeMockData() {
+  void _initialData() {
     // Initialize members
     members.addAll([
       Member(
@@ -51,7 +48,7 @@ class CommunityController extends GetxController {
       ),
     ]);
 
-    // Initialize available users for adding
+
     availableUsers.addAll([
       Member(
         id: '4',
@@ -79,7 +76,6 @@ class CommunityController extends GetxController {
       ),
     ]);
 
-    // Initialize events
     upcomingEvents.addAll([
       Event(
         id: '1',
@@ -111,7 +107,7 @@ class CommunityController extends GetxController {
       Get.back(); // Close bottom sheet
       Get.snackbar(
         'Success',
-        '${member.name} has been added to the community',
+        '${member.name} has been added.',
         snackPosition: SnackPosition.BOTTOM,
         duration: Duration(seconds: 2),
       );

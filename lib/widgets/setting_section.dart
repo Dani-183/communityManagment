@@ -7,6 +7,8 @@ import '../../controllers/community_controller/community_controller.dart';
 class SettingsSection extends StatelessWidget {
   final CommunityController controller = Get.find<CommunityController>();
 
+   SettingsSection({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

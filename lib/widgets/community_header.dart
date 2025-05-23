@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:task/constants/colors.dart';
+import 'package:task/constants/strings.dart';
 
 import '../../controllers/community_controller/community_controller.dart';
 import '../../gen/assets.gen.dart';
 
-class CommunityHeader extends StatelessWidget {
-  CommunityHeader({super.key});
+class CustomHeader extends StatelessWidget {
+  CustomHeader({super.key});
   final CommunityController controller = Get.find<CommunityController>();
 
   @override
@@ -73,21 +74,21 @@ class CommunityHeader extends StatelessWidget {
                             context,
                             controller.community.value.communityMembers
                                 .toString(),
-                            'Community\nMembers',
+                            communityMember,
                             AppColors.primaryColor.withOpacity(0.6),
                           ),
                           _buildStatItem(
                             context,
                             controller.community.value.upcomingEvents
                                 .toString(),
-                            'Upcoming\nEvents',
+                            upcomingEvents,
                               AppColors.primaryColor.withOpacity(0.6),
                           ),
                           _buildStatItem(
                             context,
                             controller.community.value.currentlyCheckedIn
                                 .toString(),
-                            'Currently\nChecked In',
+                            currentlyCheckedIn,
                               AppColors.primaryColor.withOpacity(0.6),
                           ),
                         ],
